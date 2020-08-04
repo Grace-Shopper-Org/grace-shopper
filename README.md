@@ -1,4 +1,6 @@
 # Some Good Links to Have:
+Group google drive: https://drive.google.com/drive/folders/1BKqg7RZvB0bWX9i4ns0U9KqYic4OGRVZ?usp=sharing
+
 Group norms: https://docs.google.com/document/d/1-GvtjRnaEwJlW9FjLSnE9N4P6NACfurOpN8ENE36JGw/edit#heading=h.o5mu27u0ogz3
 
 Group contract: https://docs.google.com/document/d/1uP3KA83eF8EzX4j6sC7Xv5u9fj6PawVIwBuj8euUD1Q/edit#heading=h.onv2r3msw9bn
