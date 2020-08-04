@@ -60,3 +60,5 @@ const fakeUsers = [
     email: 'grace@fullstack.org'
   }
 ]
+
+module.exports = {fakeProducts, fakeUsers}
