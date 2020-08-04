@@ -8,7 +8,7 @@ const cart = db.define('cart', {
     defaultValue: 'created'
   },
   totalPrice: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.FLOAT,
     validate: {
       min: 0
     }

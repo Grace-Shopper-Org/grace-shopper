@@ -20,8 +20,8 @@ const db = require('../db')
 User.hasOne(Cart)
 Cart.belongsTo(User)
 
-Cart.belongsToMany(Product)
-Product.belongsToMany(Cart)
+Cart.belongsToMany(Product, {through: 'Shopping-cart'})
+Product.belongsToMany(Cart, {through: 'Shopping-cart'})
 
 module.exports = {
   User,
