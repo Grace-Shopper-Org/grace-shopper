@@ -3,6 +3,7 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const User = db.define('user', {
+  username: Sequelize.STRING,
   email: {
     type: Sequelize.STRING,
     unique: true,
@@ -26,6 +27,12 @@ const User = db.define('user', {
   },
   googleId: {
     type: Sequelize.STRING
+  },
+  // Depends on what travis says
+  imageUrl: {
+    type: Sequelize.TEXT,
+    defaultValue:
+      'https://thumbs.dreamstime.com/b/default-avatar-profile-icon-social-media-user-vector-default-avatar-profile-icon-social-media-user-vector-portrait-176194876.jpg'
   }
 })
 
