@@ -23,7 +23,7 @@ const fakeProducts = [
   {
     name: 'Cedar Surprise',
     price: 6,
-    description: 'that good tree smell',
+    description: 'that good tree smell!',
     imageUrl:
       'https://images.unsplash.com/photo-1560865302-90692d3a4716?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'
   },
