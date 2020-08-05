@@ -2,25 +2,21 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const cart = db.define('cart', {
-  status: {
-    //What is the purpose of processing
-    type: Sequelize.ENUM('created', 'completed', 'processing'),
-    defaultValue: 'created'
-  },
-  totalPrice: {
-    type: Sequelize.FLOAT,
+  quantity: {
+    type: Sequelize.INTEGER,
+    defaultValue: 1,
     validate: {
       min: 0
     }
   },
-  quantity: {
+  //will be updated once order status changes from CART to PROCESSING
+  //do something w/sequelize hooks to catch that
+  price: {
     type: Sequelize.INTEGER,
     validate: {
       min: 0
     }
   }
 })
-
-//Create a new table to store user cart history
 
 module.exports = cart
