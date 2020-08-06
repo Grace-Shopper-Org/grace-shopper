@@ -11,7 +11,6 @@ class SingleCart extends React.Component {
 
   render() {
     const cart = this.props.cart
-    console.log(cart)
     return (
       <div className="single-cart">
         <h3> User Cart: </h3>
