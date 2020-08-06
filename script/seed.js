@@ -11,7 +11,6 @@ async function seed() {
   await Promise.all(fakeProducts.map(product => Product.create(product)))
   await Promise.all(fakeUsers.map(user => User.create(user)))
 
-  //await Promise.all(fakeOrder.map(order => Order.create(order)))
   const orderOne = await Order.create(fakeOrder[0])
   const orderTwo = await Order.create(fakeOrder[1])
   const orderThree = await Order.create(fakeOrder[2])
