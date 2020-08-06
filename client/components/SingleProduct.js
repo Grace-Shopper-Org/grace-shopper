@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleProduct} from '../store/singleProduct'
+import {AddToCart} from './AddToCart'
 
 export class SingleProduct extends React.Component {
   componentDidMount() {
@@ -19,7 +20,9 @@ export class SingleProduct extends React.Component {
         <div id="single-product">
           <h2>{currentProduct.name}</h2>
           <p>{currentProduct.description}</p>
-          <div>Price: {currentProduct.price}</div>
+          <div>
+            Price: {currentProduct.price} <AddToCart />
+          </div>
           <img
             src={currentProduct.imageUrl}
             alt={`a picture of ${currentProduct.name}`}
