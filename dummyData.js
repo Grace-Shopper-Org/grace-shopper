@@ -61,4 +61,19 @@ const fakeUsers = [
   }
 ]
 
-module.exports = {fakeProducts, fakeUsers}
+const fakeOrder = [
+  {
+    userId: 1,
+    status: 'created'
+  },
+  {
+    userId: 1,
+    status: 'completed'
+  },
+  {
+    userId: 2,
+    status: 'created'
+  }
+]
+
+module.exports = {fakeProducts, fakeUsers, fakeOrder}
