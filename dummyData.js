@@ -45,7 +45,9 @@ const fakeUsers = [
   {
     username: 'gottaHaveSoap',
     password: '1234',
-    email: 'gottaHaveSoap@foo.bar'
+    email: 'gottaHaveSoap@foo.bar',
+    imageUrl:
+      'https://previews.123rf.com/images/kahovsky/kahovsky1912/kahovsky191200042/135373319-cute-happy-soap-juggle-foam-bubble-vector-flat-cartoon-character-illustration-icon-design-isolated-o.jpg'
   },
   {
     username: 'cleanKid',
@@ -61,4 +63,20 @@ const fakeUsers = [
   }
 ]
 
-module.exports = {fakeProducts, fakeUsers}
+const fakeCarts = [
+  {
+    quantity: 2,
+    price: 1,
+    productId: 1,
+    orderId: 1
+  }
+]
+
+const fakeOrders = [
+  {
+    status: 'created',
+    userId: 1
+  }
+]
+
+module.exports = {fakeProducts, fakeUsers, fakeCarts, fakeOrders}
