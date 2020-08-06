@@ -19,7 +19,12 @@ export class SingleProduct extends React.Component {
         <div id="single-product">
           <h2>{currentProduct.name}</h2>
           <p>{currentProduct.description}</p>
-          <div>Price: {currentProduct.price}</div>
+          <div>
+            Price: {currentProduct.price}{' '}
+            <button className="add-to-cart" type="button">
+              Add to Cart
+            </button>
+          </div>
           <img
             src={currentProduct.imageUrl}
             alt={`a picture of ${currentProduct.name}`}
