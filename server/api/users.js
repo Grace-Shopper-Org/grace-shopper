@@ -38,11 +38,11 @@ router.get('/:userId/cart', async (req, res, next) => {
         {
           model: Product,
           required: false,
-          attributes: ['name', 'price', 'imageUrl']
+          attributes: ['name', 'price', 'imageUrl', 'id']
         }
       ]
     })
-    res.json(cart)
+    res.json(cart[0].products || [])
   } catch (error) {
     next(error)
   }
