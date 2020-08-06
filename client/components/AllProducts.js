@@ -1,5 +1,8 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 import {fakeProducts} from '../../dummyData'
+import {fetchProducts} from '../store/products'
 
 //importing the product list from dummy data for testing purposes
 //eventually we'll make an axios call w/Redux and get it via props
@@ -8,10 +11,18 @@ import {fakeProducts} from '../../dummyData'
 //be sure to change the key id to product.id when we have database access
 
 export class AllProducts extends React.Component {
+  componentDidMount() {
+    this.props.getProducts()
+  }
+
   render() {
-    //this will eventually be:
-    //const products = this.props.products
-    const products = fakeProducts
+    //this is the redux method
+    const products = this.props.products
+    console.log('props: ', this.props)
+
+    //this is the hardcoded method
+    // const products = fakeProducts
+
     console.log(products)
 
     return (
@@ -40,3 +51,13 @@ export class AllProducts extends React.Component {
     )
   }
 }
+
+const mapState = reduxState => ({
+  products: reduxState.products
+})
+
+const mapDispatch = dispatch => ({
+  getProducts: () => dispatch(fetchProducts)
+})
+
+export default connect(mapState, mapDispatch)(AllProducts)
