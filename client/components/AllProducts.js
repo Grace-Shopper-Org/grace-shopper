@@ -2,9 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../store/products'
+import {AddToCart} from './AddToCart'
 
-//TODO: be sure to add a link to the single-product view
-//TODO: add button to add a product to a cart, etc
+//TODO: write a function to add to cart, runs when you click the button
 
 export class AllProducts extends React.Component {
   componentDidMount() {
@@ -23,9 +23,13 @@ export class AllProducts extends React.Component {
               return (
                 <li key={product.id}>
                   <ul>
-                    <li>{product.name}</li>
+                    <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <li>{product.description}</li>
-                    <li>Price: ${product.price}</li>
+                    <li>
+                      Price: ${product.price}
+                      <AddToCart />
+                    </li>
+
                     <img
                       src={product.imageUrl}
                       alt="a picture of the product"
