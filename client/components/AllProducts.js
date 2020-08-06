@@ -2,6 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../store/products'
+import {AddToCart} from './AddToCart'
 
 //TODO: write a function to add to cart, runs when you click the button
 
@@ -26,9 +27,7 @@ export class AllProducts extends React.Component {
                     <li>{product.description}</li>
                     <li>
                       Price: ${product.price}
-                      <button className="add-to-cart" type="button">
-                        Add to Cart
-                      </button>
+                      <AddToCart />
                     </li>
 
                     <img
