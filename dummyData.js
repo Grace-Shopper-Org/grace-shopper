@@ -63,20 +63,19 @@ const fakeUsers = [
   }
 ]
 
-const fakeCarts = [
+const fakeOrder = [
   {
-    quantity: 2,
-    price: 1,
-    productId: 1,
-    orderId: 1
+    userId: 1,
+    status: 'created'
+  },
+  {
+    userId: 1,
+    status: 'completed'
+  },
+  {
+    userId: 2,
+    status: 'created'
   }
 ]
 
-const fakeOrders = [
-  {
-    status: 'created',
-    userId: 1
-  }
-]
-
-module.exports = {fakeProducts, fakeUsers, fakeCarts, fakeOrders}
+module.exports = {fakeProducts, fakeUsers, fakeOrder}
