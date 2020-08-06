@@ -23,7 +23,7 @@ export class AllProducts extends React.Component {
               return (
                 <li key={product.id}>
                   <ul>
-                    <li>{product.name}</li>
+                    <Link to={`/products/${product.id}`}>{product.name}</Link>
                     <li>{product.description}</li>
                     <li>Price: ${product.price}</li>
                     <img
