@@ -45,7 +45,9 @@ const fakeUsers = [
   {
     username: 'gottaHaveSoap',
     password: '1234',
-    email: 'gottaHaveSoap@foo.bar'
+    email: 'gottaHaveSoap@foo.bar',
+    imageUrl:
+      'https://previews.123rf.com/images/kahovsky/kahovsky1912/kahovsky191200042/135373319-cute-happy-soap-juggle-foam-bubble-vector-flat-cartoon-character-illustration-icon-design-isolated-o.jpg'
   },
   {
     username: 'cleanKid',
@@ -72,7 +74,15 @@ const fakeOrder = [
   },
   {
     userId: 2,
-    status: 'created'
+    status: 'completed'
+  },
+  {
+    userId: 3,
+    status: 'completed'
+  },
+  {
+    userId: 3,
+    status: 'completed'
   }
 ]
 
