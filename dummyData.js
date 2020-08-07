@@ -78,4 +78,42 @@ const fakeOrder = [
   }
 ]
 
-module.exports = {fakeProducts, fakeUsers, fakeOrder}
+const sampleOrder = [
+  {
+    id: 2,
+    status: 'completed',
+    userId: 1,
+    products: [
+      {
+        name: 'Soap A',
+        price: 5,
+        imageUrl:
+          'https://images.unsplash.com/photo-1584305574620-2aab80eedfe6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
+        cart: {
+          quantity: 1,
+          price: null,
+          createdAt: '2020-08-06T16:42:34.510Z',
+          updatedAt: '2020-08-06T16:42:34.510Z',
+          orderId: 2,
+          productId: 1
+        }
+      },
+      {
+        name: 'Lavender Dream',
+        price: 7,
+        imageUrl:
+          'https://images.unsplash.com/photo-1524136964799-6ba980a735f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80',
+        cart: {
+          quantity: 1,
+          price: null,
+          createdAt: '2020-08-06T16:42:34.517Z',
+          updatedAt: '2020-08-06T16:42:34.517Z',
+          orderId: 2,
+          productId: 2
+        }
+      }
+    ]
+  }
+]
+
+module.exports = {fakeProducts, fakeUsers, fakeOrder, sampleOrder}

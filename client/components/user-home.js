@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
+import {OrderHistory} from './order-history/OrderHistory'
 
 /**
  * COMPONENT
@@ -11,7 +12,7 @@ export const UserHome = props => {
     <div>
       <h3>Welcome, {username}</h3>
       <img src={imageUrl} />
-      <h2> Order History Here: </h2>
+      <OrderHistory />
     </div>
   )
 }
