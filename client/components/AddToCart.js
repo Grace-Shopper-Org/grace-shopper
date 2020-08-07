@@ -1,4 +1,5 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
 //to do: make the select form less manual
 //to do: run a check with Quantity field based on available inventory
@@ -7,14 +8,27 @@ import React from 'react'
 export class AddToCart extends React.Component {
   constructor() {
     super()
+    this.state = {
+      selectValue: '1'
+    }
+    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  //eventually, we want this handleSubmit function to add the specified quantity of the item to the user's cart.
-  //this will be a post route to the user's cart?
-  handleSubmit(event) {
-    event.preventDefault()
+  handleChange(evt) {
+    evt.preventDefault()
+    this.setState({selectValue: evt.target.value})
+  }
+
+  handleSubmit(evt) {
+    evt.preventDefault()
     console.log('eventually, this will add to cart!')
+
+    const productId = this.props.productId
+    const quantity = this.state.selectValue
+
+    console.log({productId: productId, quantity: quantity})
+    //ProductId
   }
 
   render() {
@@ -22,7 +36,7 @@ export class AddToCart extends React.Component {
       <div>
         <form id="add-to-cart-form" onSubmit={this.handleSubmit}>
           <label htmlFor="quantity">Quantity:</label>
-          <select>
+          <select onChange={this.handleChange} value={this.state.selectValue}>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -36,3 +50,7 @@ export class AddToCart extends React.Component {
     )
   }
 }
+
+const mapDispatch = dispatch => ({})
+
+export default connect(null, mapDispatch)(AddToCart)
