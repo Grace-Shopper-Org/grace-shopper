@@ -76,4 +76,29 @@ const fakeOrder = [
   }
 ]
 
-module.exports = {fakeProducts, fakeUsers, fakeOrder}
+const fakeReviews = [
+  {
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    productId: 1,
+    userId: 2
+  },
+  {
+    content:
+      'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
+    productId: 1,
+    userId: 1
+  },
+  {
+    content:
+      'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    productId: 2,
+    userId: 2
+  },
+  {
+    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    productId: 4,
+    userId: 2
+  }
+]
+
+module.exports = {fakeProducts, fakeUsers, fakeOrder, fakeReviews}

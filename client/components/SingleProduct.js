@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleProduct} from '../store/singleProduct'
 import {AddToCart} from './AddToCart'
+import ReviewList from './ReviewsList'
 
 export class SingleProduct extends React.Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ export class SingleProduct extends React.Component {
             src={currentProduct.imageUrl}
             alt={`a picture of ${currentProduct.name}`}
           />
+          <ReviewList />
         </div>
       </div>
     )
