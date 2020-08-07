@@ -79,6 +79,10 @@ const fakeOrder = [
   {
     userId: 3,
     status: 'completed'
+  },
+  {
+    userId: 3,
+    status: 'completed'
   }
 ]
 
