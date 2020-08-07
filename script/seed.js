@@ -13,6 +13,7 @@ async function seed() {
   const orderOne = await Order.create(fakeOrder[0])
   const orderTwo = await Order.create(fakeOrder[1])
   const orderThree = await Order.create(fakeOrder[2])
+  const orderFour = await Order.create(fakeOrder[3])
   const customerOne = await User.findOne({
     where: {
       id: 1
@@ -21,6 +22,11 @@ async function seed() {
   const customerTwo = await User.findOne({
     where: {
       id: 2
+    }
+  })
+  const customerThree = await User.findOne({
+    where: {
+      id: 3
     }
   })
   const productOne = await Product.findOne({
@@ -35,11 +41,14 @@ async function seed() {
   })
   await customerOne.addOrder(orderOne) //created
   await customerOne.addOrder(orderTwo) // completed
-  await customerTwo.addOrder(orderThree) //created
+  await customerTwo.addOrder(orderThree) //completed
+  await customerThree.addOrder(orderFour) //completed
   await orderOne.addProduct(productOne)
   await orderOne.addProduct(productTwo)
   await orderTwo.addProduct(productOne)
   await orderTwo.addProduct(productTwo)
+  await orderThree.addProduct(productOne)
+  await orderFour.addProduct(productOne)
   console.log(`seeded successfully`)
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {OrderHistory} from './order-history/OrderHistory'
+import OrderHistory from './order-history/OrderHistory'
 
 /**
  * COMPONENT

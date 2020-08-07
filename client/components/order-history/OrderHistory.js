@@ -1,26 +1,34 @@
 import React from 'react'
-import {sampleOrder} from '../../../dummyData'
+import {connect} from 'react-redux'
+import {fetchOrderHistory} from '../../store/orderhistory'
+import {SingleOrder} from './SingleOrder'
 
 export class OrderHistory extends React.Component {
-  render() {
-    const orderItems = sampleOrder
-    console.log(orderItems)
-    const productList = orderItems[0].products
+  componentDidMount() {
+    this.props.userId && this.props.getOrderHistory(this.props.userId)
+    console.log(this.props)
+  }
 
+  render() {
+    const allOrders = this.props.orderHistory
+    console.log(allOrders)
     return (
       <div>
-        <h3>Order History</h3>
-        <h1>
-          Order#: {orderItems[0].id} Status: {orderItems[0].status}
-        </h1>
-        {productList.map(product => (
-          <li key={product.id}>
-            {product.name}
-            <img src={product.imageUrl} />
-            Price: ${product.price}
-          </li>
-        ))}
+        {allOrders &&
+          allOrders.map(order => {
+            return <SingleOrder key={order.id} order={order} />
+          })}
       </div>
     )
   }
 }
+
+const mapState = reduxState => ({
+  userId: reduxState.user.id,
+  orderHistory: reduxState.orders
+})
+const mapDispatch = dispatch => ({
+  getOrderHistory: userId => dispatch(fetchOrderHistory(userId))
+})
+
+export default connect(mapState, mapDispatch)(OrderHistory)
