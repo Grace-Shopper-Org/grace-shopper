@@ -4,8 +4,6 @@ import {connect} from 'react-redux'
 import {fetchProducts} from '../store/products'
 import {AddToCart} from './AddToCart'
 
-//TODO: write a function to add to cart, runs when you click the button
-
 export class AllProducts extends React.Component {
   componentDidMount() {
     this.props.getProducts()
@@ -13,7 +11,7 @@ export class AllProducts extends React.Component {
 
   render() {
     const products = this.props.products
-
+    console.log(this.props.user)
     return (
       <div>
         <div id="product-list">
@@ -27,7 +25,7 @@ export class AllProducts extends React.Component {
                     <li>{product.description}</li>
                     <li>
                       Price: ${product.price}
-                      <AddToCart />
+                      <AddToCart productId={product.id} />
                     </li>
 
                     <img
@@ -46,7 +44,8 @@ export class AllProducts extends React.Component {
 }
 
 const mapState = reduxState => ({
-  products: reduxState.products
+  products: reduxState.products,
+  user: reduxState.user
 })
 
 const mapDispatch = dispatch => ({
