@@ -27,6 +27,7 @@ export const removeCart = () => ({
 })
 
 //Remove Item when click delete button
+//Has bug which requires refreshing
 const REMOVE_ITEM = 'REMOVE_ITEM'
 
 export const removeItem = productId => ({
@@ -45,6 +46,24 @@ export const deleteItem = (orderId, productId) => {
   }
 }
 
+const ADD_ITEM = 'ADD_ITEM'
+
+export const addItem = product => ({
+  type: ADD_ITEM,
+  product
+})
+
+export const addCart = (orderId, productId) => {
+  return async function(dispatch) {
+    try {
+      const {data} = await axios.post(`/api/cart/${orderId}/${productId}`)
+      dispatch(addItem(data))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 //INITAL STATE
 const initalState = []
 
@@ -56,7 +75,10 @@ export default function(state = initalState, action) {
     case REMOVE_CART:
       return initalState
     case REMOVE_ITEM:
+      //Need to check filter
       return state.filter(item => action.productId !== item.cart.productId)
+    case ADD_ITEM:
+      return [...state, action.product]
     default:
       return state
   }

@@ -2,16 +2,6 @@ const router = require('express').Router()
 module.exports = router
 const {Order, Product, Cart} = require('../db/models')
 
-//passed in userId, checks to see if cart is open.
-
-//Orders
-//Id + Status + UserId
-
-//Carts
-//Quantity + Price + orderId + productId
-
-//Products
-//name + price + imageUrl + id
 router.get('/:userId', async (req, res, next) => {
   try {
     const cart = await Order.findOrCreate({
