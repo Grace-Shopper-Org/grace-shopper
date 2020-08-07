@@ -13,11 +13,7 @@ class SingleCart extends React.Component {
 
   handleDelete(evt) {
     evt.preventDefault()
-    const value = evt.target.value
-
-    const orderId = value[0]
-    const productId = value[2]
-
+    const [orderId, productId] = evt.target.value.split(',')
     this.props.deleteItem(orderId, productId)
   }
 
