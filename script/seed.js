@@ -43,8 +43,8 @@ async function seed() {
   await customerOne.addOrder(orderTwo) // completed
   await customerTwo.addOrder(orderThree) //created
 
-  await orderOne.addProduct(productOne, {quantity: 10})
-  await orderOne.addProduct(productTwo, {quantity: 7})
+  await orderOne.addProduct(productOne)
+  await orderOne.addProduct(productTwo)
 
   console.log(`seeded successfully`)
 }

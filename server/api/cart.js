@@ -60,3 +60,24 @@ router.get('/:orderId/:productId', async (req, res, next) => {
     next(error)
   }
 })
+
+router.post('/:orderId/:productId', async (req, res, next) => {
+  try {
+    const order = await Order.findOne({
+      where: {
+        id: req.params.orderId
+      }
+    })
+
+    const product = await Product.findOne({
+      where: {
+        id: req.params.productId
+      }
+    })
+
+    const newItem = await order.addProduct(product)
+    res.send(newItem)
+  } catch (error) {
+    next(error)
+  }
+})
