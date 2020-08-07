@@ -9,4 +9,3 @@ export {Login, Signup} from './auth-form'
 export {default as AllProducts} from './AllProducts'
 export {default as Cart} from './Cart/singleCartView'
 export {default as SingleProduct} from './SingleProduct'
-

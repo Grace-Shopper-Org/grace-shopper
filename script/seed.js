@@ -10,42 +10,48 @@ async function seed() {
 
   await Promise.all(fakeProducts.map(product => Product.create(product)))
   await Promise.all(fakeUsers.map(user => User.create(user)))
-
   const orderOne = await Order.create(fakeOrder[0])
   const orderTwo = await Order.create(fakeOrder[1])
   const orderThree = await Order.create(fakeOrder[2])
-
+  const orderFour = await Order.create(fakeOrder[3])
+  const orderFive = await Order.create(fakeOrder[4])
   const customerOne = await User.findOne({
     where: {
       id: 1
     }
   })
-
   const customerTwo = await User.findOne({
     where: {
       id: 2
     }
   })
-
+  const customerThree = await User.findOne({
+    where: {
+      id: 3
+    }
+  })
   const productOne = await Product.findOne({
     where: {
       id: 1
     }
   })
-
   const productTwo = await Product.findOne({
     where: {
       id: 2
     }
   })
-
   await customerOne.addOrder(orderOne) //created
   await customerOne.addOrder(orderTwo) // completed
-  await customerTwo.addOrder(orderThree) //created
-
+  await customerTwo.addOrder(orderThree) //completed
+  await customerThree.addOrder(orderFour) //completed
+  await customerThree.addOrder(orderFive)
   await orderOne.addProduct(productOne)
   await orderOne.addProduct(productTwo)
-
+  await orderTwo.addProduct(productOne)
+  await orderTwo.addProduct(productTwo)
+  await orderThree.addProduct(productOne)
+  await orderFour.addProduct(productOne)
+  await orderFive.addProduct(productOne)
   console.log(`seeded successfully`)
 }
 
