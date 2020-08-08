@@ -97,3 +97,10 @@ Style for a Single Product
 #product-description {
   font-style: italic;
 }
+
+/*
+Style for User Homepage
+*/
+#user-home {
+  margin-left: 5%;
+}
