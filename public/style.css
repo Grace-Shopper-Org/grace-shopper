@@ -25,19 +25,18 @@ img {
 }
 
 #main-page-content {
-  margin-top: 15%;
+  padding-top: 125px;
 }
 
 /*
 Style for the Navbar
 */
-
 #navbar {
   top: 0;
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 150px;
+  height: 125px;
   position: fixed;
   color: #011f4b;
   background-color: #b3cde0;
@@ -56,17 +55,33 @@ Style for the Product List:
   margin: 10px;
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-gap: 10px;
+  grid-column-gap: auto;
+  grid-row-gap: 20px;
 }
 
 .grid-item {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 75%;
+  width: 100%;
   text-align: center;
+}
+
+.grid-image {
+  overflow: hidden;
+}
+
+.product-image {
+  max-height: 90%;
+  max-width: 90%;
+  height: 200px;
+  width: auto;
 }
 
 .product-list-header {
   text-align: center;
 }
+
+/*
+Style for a Single Product
+*/
