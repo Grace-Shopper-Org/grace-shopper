@@ -14,7 +14,9 @@ export class AllProducts extends React.Component {
     console.log(this.props.user)
     return (
       <div>
-        <h3>Our Products:</h3>
+        <div className="product-list-header">
+          <h3>Our Products:</h3>
+        </div>
         <div id="products-container">
           {products.map(product => {
             return (
