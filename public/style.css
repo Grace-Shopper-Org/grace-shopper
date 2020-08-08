@@ -85,3 +85,15 @@ Style for the Product List:
 /*
 Style for a Single Product
 */
+#single-product {
+  text-align: center;
+}
+
+#single-product-image {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+#product-description {
+  font-style: italic;
+}

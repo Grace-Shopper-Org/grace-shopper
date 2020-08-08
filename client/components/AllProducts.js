@@ -32,7 +32,7 @@ export class AllProducts extends React.Component {
                   <div className="product-name">
                     <Link to={`/products/${product.id}`}>{product.name}</Link>
                   </div>
-                  <div className="product-price">Price: ${product.price}</div>
+                  <div className="product-price">Price: {product.price}</div>
                   <div className="add-to-cart">
                     <AddToCart productId={product.id} />
                   </div>
