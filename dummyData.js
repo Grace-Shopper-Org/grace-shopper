@@ -1,4 +1,6 @@
-const fakeProducts = [
+const generateProducts = require('./fakerTest')
+
+let fakeProducts = [
   {
     name: 'Soap A',
     price: 5,
@@ -85,5 +87,7 @@ const fakeOrder = [
     status: 'completed'
   }
 ]
+
+fakeProducts = fakeProducts.concat(generateProducts(100))
 
 module.exports = {fakeProducts, fakeUsers, fakeOrder}
