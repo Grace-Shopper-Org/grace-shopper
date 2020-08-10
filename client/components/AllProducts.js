@@ -11,7 +11,7 @@ export class AllProducts extends React.Component {
 
   render() {
     const products = this.props.products
-    console.log(this.props.user)
+
     return (
       <div>
         <div className="product-list-header">
@@ -34,7 +34,7 @@ export class AllProducts extends React.Component {
                   </div>
                   <div className="product-price">Price: {product.price}</div>
                   <div className="add-to-cart">
-                    <AddToCart productId={product.id} />
+                    <AddToCart productId={product.id} userId={this.props.userId}/>
                   </div>
                 </div>
               </div>
@@ -48,7 +48,7 @@ export class AllProducts extends React.Component {
 
 const mapState = reduxState => ({
   products: reduxState.products,
-  user: reduxState.user
+  userId: reduxState.user.id
 })
 
 const mapDispatch = dispatch => ({

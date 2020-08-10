@@ -2,6 +2,7 @@ const router = require('express').Router()
 module.exports = router
 const {Order, Product, Cart} = require('../db/models')
 
+//Get all cart items from a user
 router.get('/:userId', async (req, res, next) => {
   try {
     const cart = await Order.findOrCreate({
@@ -23,6 +24,7 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
+//delete an item from cart
 router.delete('/:orderId/:productId', async (req, res, next) => {
   try {
     await Cart.destroy({
@@ -37,6 +39,7 @@ router.delete('/:orderId/:productId', async (req, res, next) => {
   }
 })
 
+//retrieve a single item from cart
 router.get('/:orderId/:productId', async (req, res, next) => {
   try {
     const item = await Cart.findOne({
@@ -51,11 +54,13 @@ router.get('/:orderId/:productId', async (req, res, next) => {
   }
 })
 
-router.post('/:orderId/:productId', async (req, res, next) => {
+//add item to part
+router.post('/:userId/:productId', async (req, res, next) => {
   try {
     const order = await Order.findOne({
       where: {
-        id: req.params.orderId
+        userId: req.params.userId,
+        status: 'created'
       }
     })
 

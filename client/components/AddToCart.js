@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {addToCart} from '../store/cart'
 
 //to do: make the select form less manual
 //to do: run a check with Quantity field based on available inventory
@@ -26,12 +27,15 @@ export class AddToCart extends React.Component {
 
     const productId = this.props.productId
     const quantity = this.state.selectValue
+    const userId = this.props.userId
 
-    console.log({productId: productId, quantity: quantity})
-    //ProductId
+    console.log({productId: productId, quantity: quantity, userId: userId})
+    //this.props.addItem(userId, productId)
   }
 
   render() {
+    console.log('addItem', this.props.addItem)
+    console.log('orginalFunction', addToCart)
     return (
       <div>
         <form id="add-to-cart-form" onSubmit={this.handleSubmit}>
@@ -51,6 +55,8 @@ export class AddToCart extends React.Component {
   }
 }
 
-const mapDispatch = dispatch => ({})
+const mapDispatch = dispatch => ({
+  addItem: (userId, productId) => dispatch(addToCart(userId, productId))
+})
 
 export default connect(null, mapDispatch)(AddToCart)
