@@ -76,7 +76,9 @@ export default function(state = initalState, action) {
       return initalState
     case REMOVE_ITEM:
       //Need to check filter
-      return state.filter(item => action.productId !== item.cart.productId)
+      return state.filter(item => {
+        return Number(action.productId) !== item.cart.productId
+      })
     case ADD_ITEM:
       return [...state, action.product]
     default:
