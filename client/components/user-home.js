@@ -9,7 +9,7 @@ import OrderHistory from './order-history/OrderHistory'
 export const UserHome = props => {
   const {username, imageUrl} = props
   return (
-    <div>
+    <div id="user-home">
       <h3>Welcome, {username}</h3>
       <img src={imageUrl} />
       <OrderHistory />
