@@ -1,13 +1,12 @@
 import React from 'react'
 
-export default function Review() {
-  //const review = props.review
-
+export default function Review({review}) {
+  console.log('REVIEWS!!', review)
   return (
     <div className="media-left">
-      This is one single review entry
+      <h5>{review.subject}</h5>
       <div className="media-body">
-        <h4 className="media-heading"> review.content</h4>
+        <p> {review.content}</p>
       </div>
     </div>
   )
