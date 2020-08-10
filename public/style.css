@@ -154,8 +154,8 @@ Style for Review Section of single-product view
 
 #new-review-box {
   margin-top: 10px;
-  height: 100px;
-  width: 500px;
+  height: 75px;
+  width: 400px;
   font-size: 14;
 }
 
@@ -164,4 +164,11 @@ Style for User Homepage
 */
 #user-home {
   margin-left: 5%;
+}
+#single-order {
+  margin-left: 25px;
+  margin-bottom: 75px;
+}
+#product-info {
+  margin-left: 15px;
 }
