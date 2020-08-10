@@ -53,11 +53,15 @@ export const addItem = product => ({
   product
 })
 
-export const addToCart = (userId, productId) => {
+export const addToCart = (userId, productId, quantity) => {
   return async function(dispatch) {
     try {
-      const {data} = await axios.post(`/api/cart/${userId}/${productId}`)
-      dispatch(addItem(data))
+      const {data} = await axios.post(
+        `/api/cart/${userId}/${productId}`,
+        quantity
+      )
+      console.log(data)
+      //dispatch(addItem(data))
     } catch (error) {
       console.log(error)
     }

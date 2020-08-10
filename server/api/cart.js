@@ -57,8 +57,7 @@ router.get('/:orderId/:productId', async (req, res, next) => {
 //add item to part of the cart
 router.post('/:userId/:productId', async (req, res, next) => {
   try {
-    const {quantity} = req.body
-    console.log('Looking for quantity', quantity)
+    const quantity = req.body.quantity
 
     const order = await Order.findOne({
       where: {
@@ -67,14 +66,13 @@ router.post('/:userId/:productId', async (req, res, next) => {
       }
     })
 
-    const product = await Product.findOne({
-      where: {
-        id: req.params.productId
-      }
+    const cart = await Cart.create({
+      order: order.id,
+      productId: req.params.productId,
+      quantity
     })
 
-    const newItem = await order.addProduct(product)
-    res.send(newItem)
+    res.send(cart)
   } catch (error) {
     next(error)
   }

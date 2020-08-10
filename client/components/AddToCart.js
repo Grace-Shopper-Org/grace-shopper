@@ -28,7 +28,7 @@ export class AddToCart extends React.Component {
     const quantity = this.state.selectValue
     const userId = this.props.userId
 
-    console.log({productId: productId, quantity: quantity, userId: userId})
+    // console.log({productId: productId, quantity: quantity, userId: userId})
 
     this.props.addItem(userId, productId, quantity)
   }
