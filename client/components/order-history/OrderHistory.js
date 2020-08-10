@@ -14,6 +14,7 @@ export class OrderHistory extends React.Component {
     console.log(allOrders)
     return (
       <div>
+        <h3>Order History</h3>
         {allOrders &&
           allOrders.map(order => {
             return <SingleOrder key={order.id} order={order} />

@@ -10,8 +10,10 @@ export const UserHome = props => {
   const {username, imageUrl} = props
   return (
     <div id="user-home">
-      <h3>Welcome, {username}</h3>
-      <img src={imageUrl} />
+      <div id="user-profile">
+        <h3>Welcome, {username}</h3>
+        <img src={imageUrl} />
+      </div>
       <OrderHistory />
     </div>
   )
