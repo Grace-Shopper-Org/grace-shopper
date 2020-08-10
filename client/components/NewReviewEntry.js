@@ -34,20 +34,25 @@ export class NewReviewEntry extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="name">Subject:</label>
-        <input
-          type="text"
-          name="subject"
-          value={this.state.subject}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="address">Content:</label>
-        <input
-          type="text"
-          name="content"
-          value={this.state.content}
-          onChange={this.handleChange}
-        />
+        <div id="new-review-subj">
+          <label htmlFor="name">Subject:</label>
+          <input
+            type="text"
+            name="subject"
+            value={this.state.subject}
+            onChange={this.handleChange}
+          />
+        </div>
+        <div id="new-review-content">
+          <label htmlFor="address">Content:</label>
+          <input
+            id="new-review-box"
+            type="text"
+            name="content"
+            value={this.state.content}
+            onChange={this.handleChange}
+          />
+        </div>
         <button type="submit">Submit</button>
       </form>
     )

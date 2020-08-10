@@ -36,18 +36,22 @@ export class ReviewsList extends Component {
 
   render() {
     return (
-      <div>
-        <ul className="media-list">
-          <b>
-            <h3>This is what our customers have to say about our products</h3>
-          </b>
-          {this.state.reviews.map(review => (
-            <Review review={review} key={review.id} />
-          ))}
-        </ul>
-        <div>
-          <p>Write a customer review</p>
-          <NewReviewEntry handleUpdate={this.handleUpdate} />
+      <div id="reviews-box">
+        <div id="reviews-list">
+          <ul className="media-list">
+            <b>
+              <h3>This is what our customers have to say about our products</h3>
+            </b>
+            {this.state.reviews.map(review => (
+              <Review review={review} key={review.id} />
+            ))}
+          </ul>
+        </div>
+        <div id="new-review">
+          <h3>Write a customer review</h3>
+          <div id="new-review-entry">
+            <NewReviewEntry handleUpdate={this.handleUpdate} />
+          </div>
         </div>
       </div>
     )
