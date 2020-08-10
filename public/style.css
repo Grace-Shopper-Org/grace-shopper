@@ -119,7 +119,6 @@ Style for a Single Product
 /*
 Style for Review Section of single-product view
 */
-
 #reviews-list {
   display: flex;
   text-align: left;
@@ -131,18 +130,33 @@ Style for Review Section of single-product view
   margin-bottom: 20px;
 }
 
-.review-subject {
-}
-
 .review-body {
   margin-top: 5px;
   margin-left: 15px;
   font-style: italic;
 }
 
+#new-review {
+  display: flex;
+  text-align: left;
+  margin-left: 10px;
+}
+
+#new-review-entry {
+  display: flex;
+  text-align: left;
+}
+
 #new-review-box {
   display: flex;
   text-align: left;
+}
+
+#new-review-box {
+  margin-top: 10px;
+  height: 100px;
+  width: 500px;
+  font-size: 14;
 }
 
 /*

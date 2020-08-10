@@ -47,9 +47,11 @@ export class ReviewsList extends Component {
             ))}
           </ul>
         </div>
-        <div id="new-review-box">
-          <p>Write a customer review</p>
-          <NewReviewEntry handleUpdate={this.handleUpdate} />
+        <div id="new-review">
+          <h3>Write a customer review</h3>
+          <div id="new-review-entry">
+            <NewReviewEntry handleUpdate={this.handleUpdate} />
+          </div>
         </div>
       </div>
     )
