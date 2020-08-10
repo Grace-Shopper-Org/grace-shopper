@@ -6,18 +6,16 @@ export class SingleOrder extends React.Component {
     const productList = thisOrder.products
 
     return (
-      <div>
-        <h3>Order History</h3>
-        <h1>
-          Order#: {thisOrder.id} Status: {thisOrder.status}
-        </h1>
+      <div id="single-order">
+        <h4>Order#: {thisOrder.id}</h4>
+        <h5>Status: {thisOrder.status}</h5>
         {productList &&
           productList.map(product => (
-            <li key={product.name.length || product.id}>
-              {product.name}
+            <div id="product-info" key={product.name.length || product.id}>
+              <div>{product.name}</div>
               <img src={product.imageUrl} />
-              Price: ${product.price}
-            </li>
+              <div>Price: ${product.price}</div>
+            </div>
           ))}
       </div>
     )
