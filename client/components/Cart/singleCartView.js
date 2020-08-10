@@ -30,7 +30,7 @@ class SingleCart extends React.Component {
                 <div>Name: {product.name}</div>
                 <img src={product.imageUrl} />
                 <div>Price: {`$${product.price}`}</div>
-                <div> Quantity: {product.cart.quantity} bar</div>
+                {/* <div> Quantity: {product.cart.quantity} bar</div> */}
                 <button
                   type="button"
                   onClick={this.handleDelete}

@@ -23,19 +23,17 @@ export class AddToCart extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault()
-    console.log('eventually, this will add to cart!')
 
     const productId = this.props.productId
     const quantity = this.state.selectValue
     const userId = this.props.userId
 
     console.log({productId: productId, quantity: quantity, userId: userId})
-    //this.props.addItem(userId, productId)
+
+    this.props.addItem(userId, productId, quantity)
   }
 
   render() {
-    console.log('addItem', this.props.addItem)
-    console.log('orginalFunction', addToCart)
     return (
       <div>
         <form id="add-to-cart-form" onSubmit={this.handleSubmit}>

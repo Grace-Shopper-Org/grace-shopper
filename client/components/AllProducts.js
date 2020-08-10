@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {fetchProducts} from '../store/products'
-import {AddToCart} from './AddToCart'
+import AddToCart from './AddToCart'
 
 export class AllProducts extends React.Component {
   componentDidMount() {
@@ -34,7 +34,10 @@ export class AllProducts extends React.Component {
                   </div>
                   <div className="product-price">Price: {product.price}</div>
                   <div className="add-to-cart">
-                    <AddToCart productId={product.id} userId={this.props.userId}/>
+                    <AddToCart
+                      productId={product.id}
+                      userId={this.props.userId}
+                    />
                   </div>
                 </div>
               </div>

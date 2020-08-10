@@ -54,9 +54,12 @@ router.get('/:orderId/:productId', async (req, res, next) => {
   }
 })
 
-//add item to part
+//add item to part of the cart
 router.post('/:userId/:productId', async (req, res, next) => {
   try {
+    const {quantity} = req.body
+    console.log('Looking for quantity', quantity)
+
     const order = await Order.findOne({
       where: {
         userId: req.params.userId,
