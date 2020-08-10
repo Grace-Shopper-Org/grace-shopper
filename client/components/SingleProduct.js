@@ -24,7 +24,6 @@ export class SingleProduct extends React.Component {
             src={currentProduct.imageUrl}
             alt={`a picture of ${currentProduct.name}`}
           />
-          <ReviewList />
         </div>
         <div id="single-product-info">
           <h2>{currentProduct.name}</h2>
@@ -33,6 +32,7 @@ export class SingleProduct extends React.Component {
           </div>
           <p id="product-description">{currentProduct.description}</p>
         </div>
+        <ReviewList />
       </div>
     )
   }

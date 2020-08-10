@@ -117,6 +117,35 @@ Style for a Single Product
 }
 
 /*
+Style for Review Section of single-product view
+*/
+
+#reviews-list {
+  display: flex;
+  text-align: left;
+}
+
+.single-review {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-bottom: 20px;
+}
+
+.review-subject {
+}
+
+.review-body {
+  margin-top: 5px;
+  margin-left: 15px;
+  font-style: italic;
+}
+
+#new-review-box {
+  display: flex;
+  text-align: left;
+}
+
+/*
 Style for User Homepage
 */
 #user-home {
