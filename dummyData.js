@@ -86,4 +86,56 @@ const fakeOrder = [
   }
 ]
 
-module.exports = {fakeProducts, fakeUsers, fakeOrder}
+const fakeReviews = [
+  {
+    subject: 'The best of the best',
+    content:
+      'What a pleasant surprise I received in starting to use your superb new soap. My tired old face thanks you for the ease in lavish lathering. Oh, and the divine fragrances are almost (but not quite) the best part. I shall continue using them and pass them around to my friends.',
+    productId: 1,
+    userId: 2
+  },
+  {
+    subject: 'Wonderful all natural soaps',
+    content:
+      'I wanted to try the Dr. Squatch cold pressed natural soaps, but they are way too expensive, so I gave these soaps a shot. They are fantastic and I dont think I will ever go back to traditional soaps again',
+    productId: 1,
+    userId: 1
+  },
+  {
+    subject: 'Love',
+    content:
+      'I really like these soaps! They smell great when showering and made my bathroom smell wonderful. They seem to rinse clean and leave a subtle scent on my skin.',
+    productId: 3,
+    userId: 2
+  },
+  {
+    subject: 'High Quality, Beautiful Scent(s), Great Value',
+    content:
+      'Usually when I see a product this cheap I think something fishy is going on! But that is probably not the case with this soap',
+    productId: 4,
+    userId: 2
+  },
+  {
+    subject: 'My new favorite soap',
+    content:
+      'I really like these soaps! I started using soap bars because I wanted to become a more environmentally friendly household.The soap lathers, cleans, and rinses well. The bars are very moisturizing and I even use them on my face',
+    productId: 5,
+    userId: 2
+  },
+  {
+    subject: 'Silly me',
+    content:
+      'I was digging through my master bath and found this unused box of soaps. I opened them up, broke out the Lavendar bar and just ordered 6 more sets.',
+    productId: 2,
+    userId: 2
+  },
+  {
+    subject: 'Exceeded my expectations',
+    content:
+      'Smells good, but not overpowering (pleasant in the shower, but I dont want to smell that "pretty" going about my business =). And the big thing is that it lasts noticeably longer than mass-market soaps I have used.',
+    productId: 2,
+    userId: 2
+  }
+]
+
+module.exports = {fakeProducts, fakeUsers, fakeOrder, fakeReviews}

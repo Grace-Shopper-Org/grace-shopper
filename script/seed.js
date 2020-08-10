@@ -1,8 +1,13 @@
 'use strict'
 
 const {db} = require('../server/db')
-const {User, Product, Order} = require('../server/db/models')
-const {fakeProducts, fakeUsers, fakeOrder} = require('../dummyData')
+const {User, Product, Order, Review} = require('../server/db/models')
+const {
+  fakeProducts,
+  fakeUsers,
+  fakeOrder,
+  fakeReviews
+} = require('../dummyData')
 
 async function seed() {
   await db.sync({force: true})
@@ -10,6 +15,8 @@ async function seed() {
 
   await Promise.all(fakeProducts.map(product => Product.create(product)))
   await Promise.all(fakeUsers.map(user => User.create(user)))
+  await Promise.all(fakeReviews.map(review => Review.create(review)))
+
   const orderOne = await Order.create(fakeOrder[0])
   const orderTwo = await Order.create(fakeOrder[1])
   const orderThree = await Order.create(fakeOrder[2])
