@@ -7,6 +7,7 @@ import products from './products'
 import cart from './cart'
 import singleProduct from './singleProduct'
 import reviews from './reviews'
+import orders from './orderhistory'
 
 //add more individual reducers here as we create them!
 const reducer = combineReducers({
@@ -15,6 +16,7 @@ const reducer = combineReducers({
   cart,
   singleProduct,
   reviews
+  orders
 })
 
 const middleware = composeWithDevTools(
