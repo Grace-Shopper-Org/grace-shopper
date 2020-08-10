@@ -54,8 +54,10 @@ export class AddToCart extends React.Component {
   }
 }
 
-const mapDispatch = dispatch => ({
-  addItem: (userId, productId) => dispatch(addToCart(userId, productId))
-})
+const mapDispatch = dispatch => {
+  return {
+    addItem: (userId, productId) => dispatch(addToCart(userId, productId))
+  }
+}
 
 export default connect(null, mapDispatch)(AddToCart)

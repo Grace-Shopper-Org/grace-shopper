@@ -8,6 +8,7 @@ class SingleCart extends React.Component {
     this.handleDelete = this.handleDelete.bind(this)
   }
   componentDidMount() {
+    //when is usedId being loaded?
     if (this.props.userId) this.props.getCart(this.props.userId)
   }
 
