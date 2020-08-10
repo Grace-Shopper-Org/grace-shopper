@@ -36,20 +36,19 @@ export const fetchReviews = () => {
 
 export const fetchSingleProductReviews = productId => {
   return async function(dispatch) {
-    dispatch(setReviewsFromServer())
     try {
-      const {data} = await axios.get(`/api/reviews/products/:${productId}`)
+      const {data} = await axios.get(`/api/reviews/:${productId}`)
       dispatch(getSingleProductReviews(data))
     } catch (error) {
       console.error(error)
     }
   }
 }
-//add review needs more work
+
 export const sendReview = review => {
   return async function(dispatch) {
     try {
-      const {data} = await axios.post('/api/products/productId', review)
+      const {data} = await axios.post('/api/reviews/', review)
       dispatch(addNewReview(data))
     } catch (error) {
       console.error(error)
@@ -57,9 +56,9 @@ export const sendReview = review => {
   }
 }
 
-// Reducer
 const initialState = {
-  reviews: []
+  reviews: [],
+  singleProdReviews: {}
 }
 
 //REDUCER
@@ -68,7 +67,7 @@ export default function(state = initialState, action) {
     case SET_REVIEWS:
       return {...state, reviews: action.reviews}
     case GET_SINGLE_PRODUCT_REVIEWS:
-      return {...state, reviews: action.reviews}
+      return {...state, singleProdReviews: action.reviews}
     case ADD_NEW_REVIEW:
       return {...state, reviews: [...state.reviews, action.review]}
     default:
