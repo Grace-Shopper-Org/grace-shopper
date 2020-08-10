@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 //to do: make the select form less manual
 //to do: run a check with Quantity field based on available inventory
+//to do: add functionality--make the add to cart button actually work!
 
 export class AddToCart extends React.Component {
   constructor() {
