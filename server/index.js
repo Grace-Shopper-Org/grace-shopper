@@ -63,6 +63,20 @@ const createApp = () => {
   app.use(passport.initialize())
   app.use(passport.session())
 
+  app.use((req, res, next) => {
+    console.log('SESSION: THIS SESSION !!', req.session)
+    next()
+  })
+  //middleware for creating the cart for the guest
+  app.use((req, res, next) => {
+    if (req.user) {
+      next()
+    } else {
+      req.session.cart = []
+      next()
+    }
+  })
+
   // auth and api routes
   app.use('/auth', require('./auth'))
   app.use('/api', require('./api'))
@@ -122,3 +136,10 @@ if (require.main === module) {
 } else {
   createApp()
 }
+
+// app.use(session({
+//   store: new (require('connect-pg-simple')(session))(),
+//   secret: process.env.FOO_COOKIE_SECRET,
+//   resave: false,
+//   cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 } // 30 days
+// }));
