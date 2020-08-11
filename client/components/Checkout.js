@@ -20,7 +20,8 @@ export class Checkout extends Component {
     console.log('the component did mount!')
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault()
     console.log('time to submit!')
   }
 
@@ -33,9 +34,9 @@ export class Checkout extends Component {
         </div>
 
         <div>
-          <button type="submit" onSubmit={this.handleSubmit}>
-            Submit!
-          </button>
+          <form id="checkout-form" onSubmit={this.handleSubmit}>
+            <button type="submit">Submit!</button>
+          </form>
         </div>
       </div>
     )
