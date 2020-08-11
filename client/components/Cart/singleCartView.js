@@ -35,7 +35,7 @@ class SingleCart extends React.Component {
     return (
       <div className="single-cart">
         <h3> User Cart: </h3>
-        <div> Total Sum: ${this.state.sum}</div>
+        <div> Total Sum: ${this.state.sum}.00</div>
         {cart.length
           ? cart.map(product => (
               <div key={product.id} className="single-cart-item">
