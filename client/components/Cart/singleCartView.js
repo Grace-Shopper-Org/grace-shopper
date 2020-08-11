@@ -5,6 +5,9 @@ import {deleteItem} from '../../store/cart'
 class SingleCart extends React.Component {
   constructor() {
     super()
+    this.state = {
+      sum: 0
+    }
     this.handleDelete = this.handleDelete.bind(this)
   }
 
@@ -14,12 +17,25 @@ class SingleCart extends React.Component {
     this.props.deleteItem(orderId, productId)
   }
 
+  componentDidUpdate() {
+    const cart = this.props.cart
+    let sum = 0
+    cart.forEach(product => {
+      sum += product.price * product.cart.quantity
+    })
+
+    if (this.state.sum !== sum) {
+      this.setState({sum: sum})
+    }
+  }
+
   render() {
     const cart = this.props.cart
 
     return (
       <div className="single-cart">
         <h3> User Cart: </h3>
+        <div> Total Sum: ${this.state.sum}.00</div>
         {cart.length
           ? cart.map(product => (
               <div key={product.id} className="single-cart-item">

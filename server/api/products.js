@@ -26,14 +26,14 @@ router.get('/:productId', async (req, res, next) => {
 
 //POST route to add a new product
 //may not be a huge priority right now
-router.post('/', async (req, res, next) => {
-  try {
-    const newProduct = await Product.create(req.body)
-    res.jsonp(newProduct)
-  } catch (error) {
-    next(error)
-  }
-})
+// router.post('/', async (req, res, next) => {
+//   try {
+//     const newProduct = await Product.create(req.body)
+//     res.jsonp(newProduct)
+//   } catch (error) {
+//     next(error)
+//   }
+// })
 
 //PUT route to update a product
 
