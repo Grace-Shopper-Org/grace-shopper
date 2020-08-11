@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
+import {Checkout} from './Checkout'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navbar">
@@ -29,6 +30,9 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       </div>
     </nav>
     <hr />
+    <div id="checkout-icon">
+      <Link to="/checkout">Checkout</Link>
+    </div>
   </div>
 )
 

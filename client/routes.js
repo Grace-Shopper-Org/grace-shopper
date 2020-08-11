@@ -8,7 +8,8 @@ import {
   UserHome,
   AllProducts,
   Cart,
-  SingleProduct
+  SingleProduct,
+  Checkout
 } from './components'
 import {me} from './store'
 
@@ -29,6 +30,7 @@ class Routes extends Component {
         <Route path="/cart" component={Cart} />
         <Route exact path="/products" component={AllProducts} />
         <Route path="/products/:productId" component={SingleProduct} />
+        <Route path="/checkout" component={Checkout} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
