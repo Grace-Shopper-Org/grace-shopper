@@ -54,24 +54,20 @@ router.get('/:orderId/:productId', async (req, res, next) => {
   }
 })
 
-//add item to part
-router.post('/:userId/:productId', async (req, res, next) => {
+//add item to part of the cart
+router.post('/:orderId/:productId/:quantity', async (req, res, next) => {
   try {
-    const order = await Order.findOne({
+    const [order] = await Cart.findOrCreate({
       where: {
-        userId: req.params.userId,
-        status: 'created'
+        orderId: Number(req.params.orderId),
+        productId: Number(req.params.productId)
       }
     })
 
-    const product = await Product.findOne({
-      where: {
-        id: req.params.productId
-      }
-    })
+    order.quantity = Number(req.params.quantity)
+    await order.save()
 
-    const newItem = await order.addProduct(product)
-    res.send(newItem)
+    res.send(order)
   } catch (error) {
     next(error)
   }

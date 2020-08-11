@@ -6,12 +6,10 @@ import {SingleOrder} from './SingleOrder'
 export class OrderHistory extends React.Component {
   componentDidMount() {
     this.props.userId && this.props.getOrderHistory(this.props.userId)
-    console.log(this.props)
   }
 
   render() {
     const allOrders = this.props.orderHistory
-    console.log(allOrders)
     return (
       <div>
         <h3>Order History</h3>
