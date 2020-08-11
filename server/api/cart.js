@@ -2,8 +2,18 @@ const router = require('express').Router()
 module.exports = router
 const {Order, Product, Cart} = require('../db/models')
 
+const usersOnly = (req, res, next) => {
+  if (!req.user.id) {
+    const err = new Error("Please don't hack")
+    err.status = 401
+
+    return next(err)
+  }
+  next()
+}
+
 //Get all cart items from a user
-router.get('/:userId', async (req, res, next) => {
+router.get('/:userId', usersOnly, async (req, res, next) => {
   try {
     const cart = await Order.findOrCreate({
       where: {
@@ -39,7 +49,7 @@ router.get('/:userId/order', async (req, res, next) => {
 })
 
 //delete an item from cart
-router.delete('/:orderId/:productId', async (req, res, next) => {
+router.delete('/:orderId/:productId', usersOnly, async (req, res, next) => {
   try {
     await Cart.destroy({
       where: {
@@ -69,20 +79,24 @@ router.get('/:orderId/:productId', async (req, res, next) => {
 })
 
 //add item to part of the cart
-router.post('/:orderId/:productId/:quantity', async (req, res, next) => {
-  try {
-    const [order] = await Cart.findOrCreate({
-      where: {
-        orderId: Number(req.params.orderId),
-        productId: Number(req.params.productId)
-      }
-    })
+router.post(
+  '/:orderId/:productId/:quantity',
+  usersOnly,
+  async (req, res, next) => {
+    try {
+      const [order] = await Cart.findOrCreate({
+        where: {
+          orderId: Number(req.params.orderId),
+          productId: Number(req.params.productId)
+        }
+      })
 
-    order.quantity = Number(req.params.quantity)
-    await order.save()
+      order.quantity = Number(req.params.quantity)
+      await order.save()
 
-    res.send(order)
-  } catch (error) {
-    next(error)
+      res.send(order)
+    } catch (error) {
+      next(error)
+    }
   }
-})
+)
