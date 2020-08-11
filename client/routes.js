@@ -13,6 +13,7 @@ import {
 import {me} from './store'
 import {fetchCart} from './store/cart'
 import {fetchProducts} from './store/products'
+import {fetchOrder} from './store/order'
 
 /**
  * COMPONENT
@@ -24,7 +25,10 @@ class Routes extends Component {
   }
 
   componentDidUpdate() {
-    if (this.props.userId) this.props.getCart(this.props.userId)
+    if (this.props.userId) {
+      this.props.getCart(this.props.userId)
+      this.props.getOrder(this.props.userId)
+    }
   }
 
   render() {
@@ -70,6 +74,7 @@ const mapDispatch = dispatch => {
       dispatch(me())
     },
     getCart: id => dispatch(fetchCart(id)),
+    getOrder: id => dispatch(fetchOrder(id)),
     getProducts: () => dispatch(fetchProducts())
   }
 }

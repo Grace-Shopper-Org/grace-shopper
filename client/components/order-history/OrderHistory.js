@@ -24,7 +24,7 @@ export class OrderHistory extends React.Component {
 
 const mapState = reduxState => ({
   userId: reduxState.user.id,
-  orderHistory: reduxState.orders
+  orderHistory: reduxState.orderHistory
 })
 const mapDispatch = dispatch => ({
   getOrderHistory: userId => dispatch(fetchOrderHistory(userId))

@@ -6,10 +6,6 @@ import AddToCart from './AddToCart'
 export class AllProducts extends React.Component {
   render() {
     const products = this.props.products
-    let orderId = 0
-    if (this.props.cart) {
-      orderId = this.props.cart.cart.orderId
-    }
 
     return (
       <div>
@@ -33,7 +29,10 @@ export class AllProducts extends React.Component {
                   </div>
                   <div className="product-price">Price: {product.price}</div>
                   <div className="add-to-cart">
-                    <AddToCart productId={product.id} orderId={orderId} />
+                    <AddToCart
+                      productId={product.id}
+                      orderId={this.props.orderId}
+                    />
                   </div>
                 </div>
               </div>
@@ -47,7 +46,8 @@ export class AllProducts extends React.Component {
 
 const mapState = reduxState => ({
   products: reduxState.products,
-  cart: reduxState.cart[0]
+  cart: reduxState.cart[0],
+  orderId: reduxState.order.id
 })
 
 export default connect(mapState, null)(AllProducts)
