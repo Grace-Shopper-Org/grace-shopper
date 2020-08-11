@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSingleProduct} from '../store/singleProduct'
-import {AddToCart} from './AddToCart'
+import AddToCart from './AddToCart'
 import ReviewList from './ReviewsList'
 
 export class SingleProduct extends React.Component {
@@ -28,7 +28,11 @@ export class SingleProduct extends React.Component {
         <div id="single-product-info">
           <h2>{currentProduct.name}</h2>
           <div id="single-product-details">
-            Price: {currentProduct.price} <AddToCart />
+            Price: {currentProduct.price}{' '}
+            <AddToCart
+              productId={currentProduct.id}
+              orderId={this.props.orderId}
+            />
           </div>
           <p id="product-description">{currentProduct.description}</p>
         </div>
@@ -40,7 +44,8 @@ export class SingleProduct extends React.Component {
 
 //here's where the map State will go
 const mapState = reduxState => ({
-  singleProduct: reduxState.singleProduct
+  singleProduct: reduxState.singleProduct,
+  orderId: reduxState.order.id
 })
 
 //and the mapDispatch

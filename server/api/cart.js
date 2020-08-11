@@ -24,6 +24,20 @@ router.get('/:userId', async (req, res, next) => {
   }
 })
 
+router.get('/:userId/order', async (req, res, next) => {
+  try {
+    const cart = await Order.findOne({
+      where: {
+        userId: req.params.userId,
+        status: 'created'
+      }
+    })
+    res.json(cart)
+  } catch (error) {
+    next(error)
+  }
+})
+
 //delete an item from cart
 router.delete('/:orderId/:productId', async (req, res, next) => {
   try {
