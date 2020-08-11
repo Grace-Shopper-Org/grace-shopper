@@ -27,12 +27,10 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         )}
         <Link to="/products">All Products</Link>
         <Link to="/cart">Cart</Link>
+        <Link to="/checkout">Checkout</Link>
       </div>
     </nav>
     <hr />
-    <div id="checkout-icon">
-      <Link to="/checkout">Checkout</Link>
-    </div>
   </div>
 )
 
