@@ -1,15 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchCart, deleteItem} from '../../store/cart'
+import {deleteItem} from '../../store/cart'
 
 class SingleCart extends React.Component {
   constructor() {
     super()
     this.handleDelete = this.handleDelete.bind(this)
-  }
-  componentDidMount() {
-    //when is usedId being loaded?
-    if (this.props.userId) this.props.getCart(this.props.userId)
   }
 
   handleDelete(evt) {
@@ -30,7 +26,7 @@ class SingleCart extends React.Component {
                 <div>Name: {product.name}</div>
                 <img src={product.imageUrl} />
                 <div>Price: {`$${product.price}`}</div>
-                {/* <div> Quantity: {product.cart.quantity} bar</div> */}
+                <div> Quantity: {product.cart.quantity} bar</div>
                 <button
                   type="button"
                   onClick={this.handleDelete}
@@ -48,13 +44,11 @@ class SingleCart extends React.Component {
 
 const mapState = state => {
   return {
-    cart: state.cart,
-    userId: state.user.id
+    cart: state.cart
   }
 }
 
 const mapDispatch = dispatch => ({
-  getCart: id => dispatch(fetchCart(id)),
   deleteItem: (orderId, productId) => dispatch(deleteItem(orderId, productId))
 })
 

@@ -53,15 +53,13 @@ export const addItem = product => ({
   product
 })
 
-export const addToCart = (userId, productId, quantity) => {
+export const addToCart = (orderId, productId, quantity) => {
   return async function(dispatch) {
     try {
       const {data} = await axios.post(
-        `/api/cart/${userId}/${productId}`,
-        quantity
+        `/api/cart/${orderId}/${productId}/${quantity}`
       )
-      console.log(data)
-      //dispatch(addItem(data))
+      dispatch(addItem(data))
     } catch (error) {
       console.log(error)
     }
@@ -83,7 +81,7 @@ export default function(state = initalState, action) {
         return Number(action.productId) !== item.cart.productId
       })
     case ADD_ITEM:
-      return [action.product, ...state]
+      return [...state]
     default:
       return state
   }

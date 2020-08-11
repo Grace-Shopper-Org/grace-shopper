@@ -55,24 +55,19 @@ router.get('/:orderId/:productId', async (req, res, next) => {
 })
 
 //add item to part of the cart
-router.post('/:userId/:productId', async (req, res, next) => {
+router.post('/:orderId/:productId/:quantity', async (req, res, next) => {
   try {
-    const quantity = req.body.quantity
-
-    const order = await Order.findOne({
+    const [order] = await Cart.findOrCreate({
       where: {
-        userId: req.params.userId,
-        status: 'created'
+        orderId: Number(req.params.orderId),
+        productId: Number(req.params.productId)
       }
     })
 
-    const cart = await Cart.create({
-      order: order.id,
-      productId: req.params.productId,
-      quantity
-    })
+    order.quantity = Number(req.params.quantity)
+    await order.save()
 
-    res.send(cart)
+    res.send(order)
   } catch (error) {
     next(error)
   }

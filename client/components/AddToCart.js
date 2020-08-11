@@ -24,13 +24,13 @@ export class AddToCart extends React.Component {
   handleSubmit(evt) {
     evt.preventDefault()
 
+    const orderId = this.props.orderId
     const productId = this.props.productId
     const quantity = this.state.selectValue
-    const userId = this.props.userId
 
-    // console.log({productId: productId, quantity: quantity, userId: userId})
+    console.log({orderId, productId, quantity})
 
-    this.props.addItem(userId, productId, quantity)
+    this.props.addItem(orderId, productId, quantity)
   }
 
   render() {
@@ -55,7 +55,8 @@ export class AddToCart extends React.Component {
 
 const mapDispatch = dispatch => {
   return {
-    addItem: (userId, productId) => dispatch(addToCart(userId, productId))
+    addItem: (orderId, productId, quantity) =>
+      dispatch(addToCart(orderId, productId, quantity))
   }
 }
 
