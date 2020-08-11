@@ -27,11 +27,10 @@ export const fetchOrderHistory = userId => {
   }
 }
 
-export const completeOrder = order => {
+export const completeOrder = userId => {
   return async function(dispatch) {
     try {
-      //axios call here
-      const {data} = await axios.put(`/api/orders/${order.id}`)
+      const {data} = await axios.put(`/api/orders/${userId}`)
       dispatch(updateOrderHistory(data))
     } catch (error) {
       console.error(error)

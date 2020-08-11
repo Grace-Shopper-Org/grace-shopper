@@ -1,6 +1,7 @@
 import React, {Component} from 'React'
 import Cart from './Cart/singleCartView'
 import {connect} from 'react-redux'
+import {completeOrder} from '../store/orderhistory'
 
 //grab cart order and put into order history
 //render cart visually
@@ -25,8 +26,7 @@ export class Checkout extends Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log('time to submit!')
-    console.log('this dot props dot cart:', this.props.cart)
+    this.props.finishOrder(this.props.user.id)
   }
 
   render() {
@@ -48,10 +48,14 @@ export class Checkout extends Component {
 
 const mapState = state => {
   return {
-    cart: state.cart
+    cart: state.cart,
+    user: state.user
   }
 }
 
 //mapDispatch
+const mapDispatch = dispatch => ({
+  finishOrder: userId => dispatch(completeOrder(userId))
+})
 
-export default connect(mapState)(Checkout)
+export default connect(mapState, mapDispatch)(Checkout)
