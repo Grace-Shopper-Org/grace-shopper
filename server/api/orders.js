@@ -23,3 +23,19 @@ router.get('/:userId', async (req, res, next) => {
     next(error)
   }
 })
+
+//PUT route for completing orders
+router.put('/:userId', async (req, res, next) => {
+  try {
+    const thisOrder = await Order.findOne({
+      where: {
+        status: 'created'
+      }
+    })
+    thisOrder.status = 'completed'
+    await thisOrder.save()
+    res.json(thisOrder)
+  } catch (error) {
+    next(error)
+  }
+})

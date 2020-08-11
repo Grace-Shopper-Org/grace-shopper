@@ -172,3 +172,21 @@ Style for User Homepage
 #product-info {
   margin-left: 15px;
 }
+
+/*
+CHECKOUT PAGE STYLE
+*/
+.single-cart-item {
+  margin: 25px;
+}
+
+#checkout-page {
+  display: flex;
+  margin-left: 10px;
+}
+
+#checkout-form {
+  display: flex;
+  align-content: left;
+  margin-top: 25px;
+}

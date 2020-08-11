@@ -11,7 +11,7 @@ export class SingleOrder extends React.Component {
         <h5>Status: {thisOrder.status}</h5>
         {productList &&
           productList.map(product => (
-            <div id="product-info" key={product.name.length || product.id}>
+            <div id="product-info" key={product.id}>
               <div>{product.name}</div>
               <img src={product.imageUrl} />
               <div>Price: ${product.price}</div>
