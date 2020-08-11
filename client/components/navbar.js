@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import {Checkout} from './Checkout'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
+const Navbar = ({handleClick, isLoggedIn, cart}) => (
   <div id="navbar">
     <h1 id="page-title">GRACEFUL SUDS</h1>
     <nav>
@@ -30,7 +30,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         <Link to="/checkout">
           <span>Checkout</span>
           <div>
-            <span className="badge">Items in Cart: 2</span>
+            <span className="badge">Items in Cart: {cart.length}</span>
           </div>
         </Link>
       </div>
@@ -44,7 +44,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.user.id
+    isLoggedIn: !!state.user.id,
+    cart: state.cart
   }
 }
 
