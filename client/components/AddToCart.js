@@ -23,19 +23,17 @@ export class AddToCart extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault()
-    console.log('eventually, this will add to cart!')
 
+    const orderId = this.props.orderId
     const productId = this.props.productId
     const quantity = this.state.selectValue
-    const userId = this.props.userId
 
-    console.log({productId: productId, quantity: quantity, userId: userId})
-    //this.props.addItem(userId, productId)
+    console.log({orderId, productId, quantity})
+
+    this.props.addItem(orderId, productId, quantity)
   }
 
   render() {
-    console.log('addItem', this.props.addItem)
-    console.log('orginalFunction', addToCart)
     return (
       <div>
         <form id="add-to-cart-form" onSubmit={this.handleSubmit}>
@@ -55,8 +53,11 @@ export class AddToCart extends React.Component {
   }
 }
 
-const mapDispatch = dispatch => ({
-  addItem: (userId, productId) => dispatch(addToCart(userId, productId))
-})
+const mapDispatch = dispatch => {
+  return {
+    addItem: (orderId, productId, quantity) =>
+      dispatch(addToCart(orderId, productId, quantity))
+  }
+}
 
 export default connect(null, mapDispatch)(AddToCart)

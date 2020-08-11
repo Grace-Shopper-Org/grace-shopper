@@ -1,16 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {fetchProducts} from '../store/products'
-import {AddToCart} from './AddToCart'
+import AddToCart from './AddToCart'
 
 export class AllProducts extends React.Component {
-  componentDidMount() {
-    this.props.getProducts()
-  }
-
   render() {
     const products = this.props.products
+    let orderId = 0
+    if (this.props.cart) {
+      orderId = this.props.cart.cart.orderId
+    }
 
     return (
       <div>
@@ -34,7 +33,7 @@ export class AllProducts extends React.Component {
                   </div>
                   <div className="product-price">Price: {product.price}</div>
                   <div className="add-to-cart">
-                    <AddToCart productId={product.id} userId={this.props.userId}/>
+                    <AddToCart productId={product.id} orderId={orderId} />
                   </div>
                 </div>
               </div>
@@ -48,11 +47,7 @@ export class AllProducts extends React.Component {
 
 const mapState = reduxState => ({
   products: reduxState.products,
-  userId: reduxState.user.id
+  cart: reduxState.cart[0]
 })
 
-const mapDispatch = dispatch => ({
-  getProducts: () => dispatch(fetchProducts())
-})
-
-export default connect(mapState, mapDispatch)(AllProducts)
+export default connect(mapState, null)(AllProducts)
