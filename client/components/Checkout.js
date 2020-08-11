@@ -10,6 +10,8 @@ import Cart from './Cart/singleCartView'
 
 //if necessary, we can just add this button to SingleCartView
 
+//POST LUNCH: start connecting the handleSubmit function to the db and give it some functionality
+
 export class Checkout extends Component {
   constructor() {
     super()
@@ -27,8 +29,7 @@ export class Checkout extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Hello World!</h1>
+      <div id="checkout-page">
         <div>
           <Cart />
         </div>

@@ -27,7 +27,12 @@ const Navbar = ({handleClick, isLoggedIn}) => (
         )}
         <Link to="/products">All Products</Link>
         <Link to="/cart">Cart</Link>
-        <Link to="/checkout">Checkout</Link>
+        <Link to="/checkout">
+          <span>Checkout</span>
+          <div>
+            <span className="badge">Items in Cart: 2</span>
+          </div>
+        </Link>
       </div>
     </nav>
     <hr />
