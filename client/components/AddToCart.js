@@ -25,6 +25,7 @@ export class AddToCart extends React.Component {
     evt.preventDefault()
 
     const orderId = this.props.orderId
+    console.log('orderId from the add to cart', orderId)
     const productId = this.props.productId
     const quantity = this.state.selectValue
 

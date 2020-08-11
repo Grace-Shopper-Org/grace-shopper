@@ -2,17 +2,9 @@ import React, {Component} from 'React'
 import Cart from './Cart/singleCartView'
 import {connect} from 'react-redux'
 import {completeOrder} from '../store/orderhistory'
+import {fetchCart} from '../store/cart'
 
-//grab cart order and put into order history
-//render cart visually
-//send cart data to database
-
-//have a total number of items, with a checkout cart icon?
-//ONCE the cart render is moved higher up on the component tree, it will be easier to get the cart information
-
-//if necessary, we can just add this button to SingleCartView
-
-//POST LUNCH: start connecting the handleSubmit function to the db and give it some functionality
+//auto update when adding from the product list
 
 export class Checkout extends Component {
   constructor() {
@@ -27,6 +19,7 @@ export class Checkout extends Component {
   handleSubmit(event) {
     event.preventDefault()
     this.props.finishOrder(this.props.user.id)
+    this.props.loadCart(this.props.user.id)
   }
 
   render() {
@@ -55,7 +48,8 @@ const mapState = state => {
 
 //mapDispatch
 const mapDispatch = dispatch => ({
-  finishOrder: userId => dispatch(completeOrder(userId))
+  finishOrder: userId => dispatch(completeOrder(userId)),
+  loadCart: userId => dispatch(fetchCart(userId))
 })
 
 export default connect(mapState, mapDispatch)(Checkout)
