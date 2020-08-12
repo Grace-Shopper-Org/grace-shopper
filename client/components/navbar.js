@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../store'
-import {Checkout} from './Checkout'
 
 const Navbar = ({handleClick, isLoggedIn, cart}) => (
   <div id="navbar">
@@ -26,12 +25,9 @@ const Navbar = ({handleClick, isLoggedIn, cart}) => (
           </span>
         )}
         <Link to="/products">All Products</Link>
-        <Link to="/cart">Cart</Link>
         <Link to="/checkout">
           <span>Checkout</span>
-          <div>
-            <span className="badge">Items in Cart: {cart.length}</span>
-          </div>
+          <span className="badge">({cart.length})</span>
         </Link>
       </div>
     </nav>
